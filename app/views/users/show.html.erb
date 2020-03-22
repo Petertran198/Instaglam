@@ -56,7 +56,7 @@
             <div class="p-1">
               <%= post.description %>                
             </div>
-        </section>
+          <%= link_to "Delete", post_path(id: post.id), method: :delete, data:{confirm: "Are you Sure?"}%>        </section>
         <% end %>
     <% end %>
 </div>
