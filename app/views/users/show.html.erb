@@ -8,18 +8,20 @@
     
     <div class="col-md-8 basic-info">
       <div class="user-wrapper">
-        <h2 class="username"><%= @user.username.capitalize %></h2>
+        <h2 class="username"><%= @user.username.capitalize if !@user.username.blank? %></h2>
+        <% if current_user.id == @user.id %>
         <a class="edit-profile" href="<%=edit_user_path(current_user.id) %>">
             <button> Edit </button>
         </a>
+        <% end %>
       </div>
       <ul class="posts">
         <li><span>12</span> posts</li>
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
-      <h2 class="name"><%= @user.name.capitalize %></h2>
-      <a class="website"> <%=link_to @user.website, "http://#{@user.website}", target: "_blank"%>
+      <h2 class="name"><%= @user.name.capitalize if !@user.username.blank? %></h2>
+      <a class="website"> <%=link_to @user.website, "http://#{@user.website}", target: "_blank" if !@user.username.blank?%>
     </div>
   </div>
 </div>
