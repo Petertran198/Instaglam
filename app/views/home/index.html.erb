@@ -1,21 +1,23 @@
 <% if user_signed_in?%>
-        <%= form_for(Post.new, :html => {:class => 'form-upload'}) do |f| %>
-        <div class="form-group">
-            <%= f.text_area :description, class:"form-control" %>
-        </div>
-        <div class="form-group">
-            <%= f.file_field :image %>
-        </div>
-        <div class="form-group">
-            <%= f.hidden_field :user_id, value: current_user.id %>
-        </div>
-        <br>
-        <div class="text-center">
-            <%= f.submit 'Create Post', class: 'btn btn-primary' %>
-        </div>
-        <% end %>
 
-        <div class="posts">
+    <%= form_for(Post.new, :html => {:class => 'form-upload'}) do |f| %>
+    
+            <div class="form-group">
+                <%= f.text_area :description, class:"form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.file_field :image %>
+            </div>
+            <div class="form-group">
+                <%= f.hidden_field :user_id, value: current_user.id %>
+            </div>
+            <br>
+            <div class="text-center">
+                <%= f.submit 'Create Post', class: 'btn btn-primary' %>
+            </div>
+    <% end %>
+
+    <div class="posts">
         <% @following_post.each do |post| %>
             <% if post.image.attached?%>
             <section class="post">

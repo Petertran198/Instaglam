@@ -56,7 +56,10 @@
             <div class="p-1">
               <%= post.description %>                
             </div>
-          <%= link_to "Delete", post_path(id: post.id), method: :delete, data:{confirm: "Are you Sure?"}%>        </section>
+            <% if post.user.id == current_user.id %>
+              <%= link_to "Delete", post_path(id: post.id), method: :delete, data:{confirm: "Are you Sure?"}, class: "btn"%>       
+            <% end %>
+        </section>
         <% end %>
     <% end %>
 </div>

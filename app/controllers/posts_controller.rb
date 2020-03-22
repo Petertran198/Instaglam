@@ -1,7 +1,15 @@
 class PostsController < ApplicationController
   def create
-   Post.create(post_params)
-    redirect_to root_path
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      flash[:notice] = "Successfully Created"
+      redirect_to root_path
+    else
+      flash[:notice] = "Error, could not save "
+      redirect_to root_path
+    end
+  #  Post.create(post_params)
+  #   redirect_to root_path
   end
 
   def destroy 
