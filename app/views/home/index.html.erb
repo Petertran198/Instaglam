@@ -1,0 +1,45 @@
+<% if user_signed_in?%>
+        <%= form_for(Post.new, :html => {:class => 'form-upload'}) do |f| %>
+        <div class="form-group">
+            <%= f.text_area :description, class:"form-control" %>
+        </div>
+        <div class="form-group">
+            <%= f.file_field :image %>
+        </div>
+        <div class="form-group">
+            <%= f.hidden_field :user_id, value: current_user.id %>
+        </div>
+        <br>
+        <div class="text-center">
+            <%= f.submit 'Create Post', class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+        <br> 
+
+        <div class="posts">
+        <% @posts.each do |post| %>
+            <% if post.image.attached?%>
+            <section class="post">
+            <div class="user">
+                <div class="avatar">
+                    <%= image_tag post.image, class: 'main-image' %>
+                </div>
+                <div class="username">
+                <%= post.user.username %>
+                </div>
+            </div>
+            <div class="description">
+                <%= post.description %>
+            </div>
+            </section>
+            <% end %>
+        <% end %>
+    </div>
+<% else  %> <!-- If user is not sign in show default >
+
+
+
+
+
+
+<% end %>
