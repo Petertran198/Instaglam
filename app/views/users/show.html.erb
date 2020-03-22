@@ -2,13 +2,13 @@
   <div class="profile row">
     <div class="col-md-4 avatar">
       <div class="wrapper">
-        <img src="https://instuigram-avatar.jpg">
+        <%= image_tag(@user.avatar) if @user.avatar.attached?%>
       </div>
     </div>
     
     <div class="col-md-8 basic-info">
       <div class="user-wrapper">
-        <h2 class="username"><%= @user.username.capitalize if !@user.username.blank? %></h2>
+        <h2 class="username"><%= @user.username.capitalize %></h2>
         <% if current_user.id == @user.id %>
         <a class="edit-profile" href="<%=edit_user_path(current_user.id) %>">
             <button> Edit </button>
@@ -16,7 +16,7 @@
         <% end %>
       </div>
       <ul class="posts">
-        <li><span>12</span> posts</li>
+        <li><span><%= @user.posts.count %></span> <%= @user.posts.count > 1 ? "posts" : "post" %></li>
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
@@ -49,13 +49,14 @@
 
 
 <div class="user-images">
-  <div class="wrapper">
-    <%= image_tag "peter-in-snow.JPG" %>
-  </div>
-  <div class="wrapper">
-    <%= image_tag "peter-in-snow.JPG" %>
-  </div>
-  <div class="wrapper">
-    <%= image_tag "peter-in-snow.JPG" %>
-  </div>
+    <% @user.posts.each do |post| %>
+        <% if post.image.attached?%>
+        <section class="wrapper card ">
+            <%= image_tag post.image, class:"img"%>
+            <div class="p-1">
+              <%= post.description %>                
+            </div>
+        </section>
+        <% end %>
+    <% end %>
 </div>
