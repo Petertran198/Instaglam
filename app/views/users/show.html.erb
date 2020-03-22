@@ -8,9 +8,9 @@
     
     <div class="col-md-8 basic-info">
       <div class="user-wrapper">
-        <h2 class="username">luanotes</h2>
-        <a class="edit-profile">
-          <button>Edit Profile</button>
+        <h2 class="username"><%= @user.username.capitalize %></h2>
+        <a class="edit-profile" href="<%=edit_user_path(current_user.id) %>">
+            <button> Edit </button>
         </a>
       </div>
       <ul class="posts">
@@ -18,8 +18,8 @@
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
-      <h2 class="name">Luan Nguyen</h2>
-      <a class="website">luanotes.com</a>
+      <h2 class="name"><%= @user.name.capitalize %></h2>
+      <a class="website"> <%=link_to @user.website, "http://#{@user.website}", target: "_blank"%>
     </div>
   </div>
 </div>
@@ -43,4 +43,17 @@
     <i class="fa fa-tag"></i>
     TAGGED
   </a>
+</div>
+
+
+<div class="user-images">
+  <div class="wrapper">
+    <%= image_tag "peter-in-snow.JPG" %>
+  </div>
+  <div class="wrapper">
+    <%= image_tag "peter-in-snow.JPG" %>
+  </div>
+  <div class="wrapper">
+    <%= image_tag "peter-in-snow.JPG" %>
+  </div>
 </div>

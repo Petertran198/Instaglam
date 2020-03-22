@@ -28,7 +28,7 @@
           <a><i class="fa fa-compass"></i></a>
           <a><i class="fa fa-heart"></i></a>
           <% if user_signed_in? %> <!--If signed display user-->
-          <a href="<%= user_path(current_user)%>">
+          <a href="<%= user_path(current_user.id)%>">
             <i class= "fa fa-user"></i>
           </a>
           <% else %> <!-- display account login -->
