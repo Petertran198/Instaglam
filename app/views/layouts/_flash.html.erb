@@ -2,11 +2,11 @@
 <% flash.each do |type, msg| %>
     <div class="text-center h2">
     <%if type == "notice" %>
-        <div class=" alert alert-danger "> <%= msg %> </div>
-    <% elsif type == "success " %>
-        <div class=" alert alert-success "> <%= msg %> </div>
-    <% elsif type == "warning " %>
-        <div class=" alert alert-warning "> <%= msg %> </div>
+        <div class=" alert alert-info "> <%= msg %> </div>
+    <% elsif type == "success" %>
+        <div class=" alert alert-success"> <%= msg %> </div>
+    <% elsif type == "warning" %>
+        <div class=" alert alert-danger"> <%= msg %> </div>
     <% end %>
     </div>
 <% end %>

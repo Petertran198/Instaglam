@@ -9,7 +9,7 @@ class PostsController < ApplicationController
       @post.errors.full_messages.each do |message|
         @errors.push(message)
       end
-      flash[:notice] =  @errors.join(", ")
+      flash[:warning] =  @errors.join(", ")
       redirect_to root_path
     end
   end
