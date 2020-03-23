@@ -16,7 +16,7 @@
         <% end %>
       </div>
       <ul class="posts">
-        <li><span><%= @user.posts.count %></span> <%= @user.posts.count > 1 ? "posts" : "post" %></li>
+        <li><span><%= @posts.count %></span> <%= @posts.count > 1 ? "posts" : "post" %></li>
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
@@ -49,7 +49,7 @@
 
 
 <div class="user-images">
-    <% @user.posts.each do |post| %>
+    <% @posts.each do |post| %>
         <% if post.image.attached?%>
         <section class="wrapper card ">
             <%= image_tag post.image, class:"img"%>
@@ -63,3 +63,7 @@
         <% end %>
     <% end %>
 </div>
+<div class="digg_pagination">
+
+   <div class="d-flex m-4"><%= will_paginate @posts, :container => false %></div> 
+  </div>

@@ -64,3 +64,4 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem "aws-sdk-s3", require: false
+gem 'will_paginate', '~> 3.3'
