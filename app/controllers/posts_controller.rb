@@ -5,11 +5,13 @@ class PostsController < ApplicationController
       flash[:notice] = "Successfully Created"
       redirect_to root_path
     else
-      flash[:notice] = "Error, could not save "
+      @errors = [] #This is a work around to pass post model errors to another controllers view page which in this case is the index page of the home controller 
+      @post.errors.full_messages.each do |message|
+        @errors.push(message)
+      end
+      flash[:notice] =  @errors.join(", ")
       redirect_to root_path
     end
-  #  Post.create(post_params)
-  #   redirect_to root_path
   end
 
   def destroy 

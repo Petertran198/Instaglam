@@ -1,7 +1,5 @@
 <% if user_signed_in?%>
-
     <%= form_for(Post.new, :html => {:class => 'form-upload'}) do |f| %>
-    
             <div class="form-group">
                 <%= f.text_area :description, class:"form-control" %>
             </div>

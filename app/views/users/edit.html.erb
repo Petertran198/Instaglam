@@ -11,8 +11,8 @@
   </div>
   <div class="details tab-content">
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-    <%= form_with model: current_user, local: true, html: {class: "form-horizontal form-edit-user"} do |f| %> Custom 
-        <div class="form-group row">
+    <%= form_with model: current_user, local: true, html: {class: "form-horizontal form-edit-user"} do |f| %>  <!--Custom form to edit devise user -->
+        <div class="form-group row"> 
             <div class="col-sm-3 col-form-label">
             <img class="avatar" src="https://instuigram-avatar.jpg">
             </div>
