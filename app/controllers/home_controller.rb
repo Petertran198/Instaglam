@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  require 'will_paginate/array' ##This is required to set up pagination for an array 
 
   def index
     if user_signed_in?
@@ -7,8 +8,10 @@ class HomeController < ApplicationController
       Post.all.each do |post|
         if current_user.following.include?(post.user.id) || current_user.id == post.user.id 
           @following_post.push(post)
+
         end
       end
+      @following_post = @following_post.paginate(page: params[:page], per_page: 3)
    end
   end
 
