@@ -11,14 +11,11 @@ class HomeController < ApplicationController
 
         end
       end
-      @following_post = @following_post.paginate(page: params[:page], per_page: 3)
+      @following_post = @following_post.paginate(page: params[:page], per_page: 5)
    end
   end
 
-  def following 
 
-
-  end 
 
 
 

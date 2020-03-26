@@ -22,6 +22,16 @@
       </ul>
       <h2 class="name"><%= @user.name.capitalize if !@user.username.blank? %></h2>
       <a class="website"> <%=link_to @user.website, "http://#{@user.website}", target: "_blank" if !@user.username.blank?%>
+      <p>
+      <!-- This is to check whatever to display the following button or not -->
+      <!-- YOu will display unfollow if the user's id is already in our following array -->
+      <!-- YOu will display follow only if current_user.id != @user.id -->
+      <% if current_user.following.include?(@user.id) && current_user.id != @user.id %>
+          <%= link_to "Unfollow", unfollow_path(id: @user.id ), class: 'btn btn-danger mt-1'%>
+      <% elsif  current_user.id != @user.id %>
+          <%= link_to "Follow", followings_path(id: @user.id), class: 'btn btn-primary mt-1' %>
+      <% end %>
+    </p>
     </div>
   </div>
 </div>
