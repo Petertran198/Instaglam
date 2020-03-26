@@ -20,8 +20,8 @@
         <li><span><%= @user.followers.length %></span> followers</li>
         <li><span><%= @user.following.length %></span> following</li>
       </ul>
-      <h2 class="name"><%= @user.name.capitalize if !@user.username.blank? %></h2>
-      <a class="website"> <%=link_to @user.website, "http://#{@user.website}", target: "_blank" if !@user.username.blank?%>
+      <h2 class="name"><%= @user.name.capitalize if !@user.name.blank? %></h2>
+      <a class="website"> <%=link_to @user.website, "http://#{@user.website}", target: "_blank" if !@user.website.blank?%>
       <p>
       <!-- This is to check whatever to display the following button or not -->
       <!-- YOu will display unfollow if the user's id is already in our following array -->

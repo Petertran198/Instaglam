@@ -14,15 +14,17 @@ class UsersController < ApplicationController
         @user = User.find(current_user.id)
 
     end 
-    def update 
-        
+
+
+    def update    
         if current_user.update(user_params)
             redirect_to current_user
         else
-
+            render 'edit'
         end
     end
 
+    #follow user
     def followings 
         # This is to save the @user's id as an integer
         # params are always a string and in this case we want to store integers because our user_id & id attribute is an integer 
@@ -33,7 +35,7 @@ class UsersController < ApplicationController
         redirect_to user_path(params[:id])
 
     end
-
+    #  Unfollow user
     def unfollow
         current_user.following.delete(params[:id].to_i)
         current_user.save 
