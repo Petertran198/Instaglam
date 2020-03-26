@@ -17,8 +17,8 @@
       </div>
       <ul class="posts">
         <li><span><%= @posts.count %></span> <%= @posts.count > 1 ? "posts" : "post" %></li>
-        <li><span>195</span> followers</li>
-        <li><span>345</span> following</li>
+        <li><span><%= @user.followers.length %></span> followers</li>
+        <li><span><%= @user.following.length %></span> following</li>
       </ul>
       <h2 class="name"><%= @user.name.capitalize if !@user.username.blank? %></h2>
       <a class="website"> <%=link_to @user.website, "http://#{@user.website}", target: "_blank" if !@user.username.blank?%>

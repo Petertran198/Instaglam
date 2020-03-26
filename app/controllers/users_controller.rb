@@ -3,6 +3,11 @@ class UsersController < ApplicationController
     def show 
         @user = User.find(params[:id])
         @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 3)
+        User.all.each do |user|
+            if user.following.include?(@user.id)
+                @user.followers.push(user.id.to_i)
+            end
+        end
     end
 
     def edit 
@@ -34,6 +39,7 @@ class UsersController < ApplicationController
         current_user.save 
         redirect_to user_path(params[:id])
     end
+
 
     private 
     def user_params 
