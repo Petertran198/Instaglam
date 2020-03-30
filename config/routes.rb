@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get 'followings', to: 'users#followings'
   get 'unfollow', to: 'users#unfollow'
   resources :posts, only: [:new,:create, :destroy]
-
+  get 'posts/:id', to: 'posts#current_post'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
