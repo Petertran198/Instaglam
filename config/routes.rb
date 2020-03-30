@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'home/index'
   root 'home#index'
   resources :users, only: [:show, :edit,:update]
+  get 'find_friends', to: 'users#find_friends' 
   get 'followings', to: 'users#followings'
   get 'unfollow', to: 'users#unfollow'
   resources :posts, only: [:new,:create, :destroy] do 
