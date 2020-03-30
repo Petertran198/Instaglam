@@ -6,7 +6,7 @@
         <div class="border mt-1 p-2 bg-light">
          <%= c.body %>
          <!-- IF you are the owner of the post then u can delete -->
-         <% if current_user.id == c.post.user_id %>
+         <% if current_user.id == c.post.user_id && c.user_id != current_user.id %>
             <%= link_to 'delete', post_comment_path(c.post_id, c.id ), method: :delete, data: {confirm: "Are you sure?"}%>
 
         <% elsif c.user_id == current_user.id %>
