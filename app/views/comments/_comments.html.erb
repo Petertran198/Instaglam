@@ -1,4 +1,11 @@
 <% @comments.each do |c| %>
-    <%= c.body %>
-    <%= c.post.user.username %>
+    <div class="card p-2 mt-1 ">
+        <% if c.post.image.attached?%>
+                <%= link_to image_tag(c.post.image, class: "small-user-pic"), user_path( c.post.user_id) %>
+        <% end %>
+        <div class="border mt-1 p-2 bg-light">
+         <%= c.body %>
+        
+        </div>
+    </div>
 <% end %>
