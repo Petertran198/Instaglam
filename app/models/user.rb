@@ -7,7 +7,7 @@ class User < ApplicationRecord
   serialize :following, Array #this is to trick the following attribute which is of text attribute to behave like an array so I can push users in 
   serialize :followers, Array
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 15}
-  
+  has_many :comments 
   
   has_one_attached :avatar
 end

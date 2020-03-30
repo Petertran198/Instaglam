@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
     validate :image_prescence
-    validates :description, length: {maximum: 20} 
+    validates :description, length: {maximum: 40} 
     belongs_to :user 
     has_one_attached :image
     has_many :comments, dependent: :destroy
