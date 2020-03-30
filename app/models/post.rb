@@ -3,9 +3,10 @@ class Post < ApplicationRecord
     validates :description, length: {maximum: 20} 
     belongs_to :user 
     has_one_attached :image
-
+    has_many :comments, dependent: :destroy
 
     def image_prescence
         errors.add(:image, "can't be blank") unless image.attached?
     end
+
 end

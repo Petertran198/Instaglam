@@ -21,7 +21,12 @@ class PostsController < ApplicationController
   end
 
   def current_post 
+
     @post = Post.find(params[:id])
+    # @comment is needed because that is one of the two instance variable need for our form partial 
+    @comment = Comment.new
+    # @comments is needed to display all the comments that belongs to the post 
+    @comments = @post.comments 
   end 
 
 

@@ -1,0 +1,11 @@
+<!-- @post is first because our routes is looking for a post_id first -->
+<%= form_for([@post,@comment]) do |c| %>
+<div class="row">
+    <div class="col-md-10">
+        <%= c.text_field :body, class: 'form-control' %>
+    </div>
+    <div class='col-md-2'>
+        <%= c.submit "Add a Comment ", class: "btn btn-primary"%>
+    </div>
+</div>
+<% end %>

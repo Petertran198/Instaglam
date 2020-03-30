@@ -21,5 +21,7 @@
                     <%= link_to @post.user.username, user_path(@post.user_id), class: "h2 text-dark" %>
             </div>
         </div>
+        <%= render 'comments/comments'%>
+        <%= render 'comments/form'%>
     </div>
 </div>
