@@ -10,4 +10,16 @@ class User < ApplicationRecord
   has_many :comments 
   
   has_one_attached :avatar
+
+
+  def how_many_followers 
+    User.all.each do |user|
+        if user.following.include?(self.id)
+            self.followers.push(user.id.to_i)
+        end
+    end
+    return self.followers 
+  end
+
+
 end

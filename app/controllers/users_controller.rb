@@ -2,16 +2,13 @@ class UsersController < ApplicationController
     before_action :authenticate_user!
     def find_friends
         @users = User.all
+
     end
 
     def show 
         @user = User.find(params[:id])
         @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 3)
-        User.all.each do |user|
-            if user.following.include?(@user.id)
-                @user.followers.push(user.id.to_i)
-            end
-        end
+
     end
 
     def edit 
@@ -27,6 +24,7 @@ class UsersController < ApplicationController
             render 'edit'
         end
     end
+    
 
     #follow user
     def followings 
