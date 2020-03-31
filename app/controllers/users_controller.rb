@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
     def find_friends
-        @users = User.all
+        #used .join to query all user that has an attachment
+        # Convention for this is <NAME OF ATTACHMENT>_attachment so thats why it is avatar_attachment 
+        @users = User.joins(:avatar_attachment).paginate(page: params[:page], per_page: 5)
 
     end
 
