@@ -61,7 +61,7 @@
 
   .posts{
     margin: 50px 180px 10px;
-    .post{
+    .post {
       border: 1px solid #efefef;
       margin: 60px 0;
       border-radius: 3px;
@@ -71,7 +71,7 @@
         display: flex;
           img{
             width: 100%;
-            max-width: 700px;
+            max-width: 350px;
             border: 1px solid #efefef;
           }
         }
@@ -91,6 +91,9 @@
       .description{
         padding: 20px;
         border-left: 5px solid #000000d4;
+      }
+      .post:nth-of-type(1){
+        margin: 0;
       }
     }
   
